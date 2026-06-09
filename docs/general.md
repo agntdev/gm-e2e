@@ -1,0 +1,2 @@
+# GM Bot — General
+A minimal crypto-culture Telegram bot that says "gm". Features: greeting on /start with a "gm" button; a fixed GM message on /gm or the button; a help list on /help. No persistence/payments/external calls.
