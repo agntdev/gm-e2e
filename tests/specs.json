@@ -1,0 +1,76 @@
+[
+  {
+    "name": "start intro",
+    "steps": [
+      {
+        "send": { "text": "/start" },
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "gm! I'm GM Bot. Send /gm for a good morning, or /help.",
+              "reply_markup": {
+                "inline_keyboard": [[{"text": "gm", "callback_data": "gm"}]]
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "gm command",
+    "steps": [
+      {
+        "send": { "text": "/gm" },
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "GM, ser! Stay bullish.",
+              "reply_markup": {
+                "inline_keyboard": [[{"text": "gm", "callback_data": "gm"}]]
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "help command",
+    "steps": [
+      {
+        "send": { "text": "/help" },
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "Commands:\n/start - intro\n/gm - say gm\n/help - this help"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "gm button",
+    "steps": [
+      {
+        "send": { "callback": "gm" },
+        "expect": [
+          { "method": "answerCallbackQuery" },
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "GM, ser! Stay bullish.",
+              "reply_markup": {
+                "inline_keyboard": [[{"text": "gm", "callback_data": "gm"}]]
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
